@@ -1,0 +1,21 @@
+{{!< default}}
+
+<section class="wrapper" tabindex="0">
+  <div class="wrapper-container">
+
+    <section class="post-list">
+      {{#foreach posts}}
+        {{> post/list this}}
+
+      {{/foreach}}
+    </section>
+
+    {{#if pagination}}
+      {{pagination}}
+    {{/if}}
+
+    {{> footer this}}
+  </div>
+</section>
+
+{{> cover this}}
