@@ -1,0 +1,14 @@
+{{!< default}}
+<section class="wrapper" tabindex="0">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post {{post_class}}">
+      {{#post}}
+        <div itemprop="articleBody" class="post-body">
+          {{content}}
+        </div>
+      {{/post}}
+    </article>
+  </div>
+</section>
+
+{{> cover this}}

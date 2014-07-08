@@ -1,31 +1,42 @@
 <article itemscope itemtype="http://schema.org/BlogPosting"
   role="article" class="post-item {{post_class}}">
   <header class="post-item-header">
-    <h2 itemprop="name" class="post-item-title">
+    <span itemprop="name" class="post-item-title">
       <a href="{{url}}" itemprop="url" data-pjax title="{{{title}}}">
         {{{title}}}
       </a>
-    </h2>
-  </header>
+    </span>
 
-  <footer class="post-item-footer">
-    <ul class="post-item-meta-list">
-      <li class="post-item-meta-item">
-        <time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
-          {{date published_at timeago="true"}}
-        </time>
-      </li>
-      {{#if tags}}
-        <li class="post-item-meta-item">
-          {{#foreach tags}}
-            <a itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}" href="{{url}}" data-pjax>{{name}}</a>
-            {{~#if @last}} {{else}}, {{/if}}
-          {{/foreach}}
-        </li>
-      {{/if}}
-      <li class="post-item-meta-item">
-        <a href="{{url}}#disqus_thread" data-pjax data-disqus-identifier="{{id}}">Comments</a>
-      </li>
-    </ul>
-  </footer>
+    <div class="post-item-meta-item">
+      <time datetime="{{date published_at format="YYYY-MM-DD"}}" itemprop="datePublished">
+        {{date published_at format='D MMMM YY'}}
+      </time>
+    </div>
+
+    {{#if tags}}
+      <div class="post-item-meta-item" >
+        {{#foreach tags}}
+          <a itemprop="{{#if @first}}articleSection{{else}}keywords{{/if}}" href="{{url}}" data-pjax style="background-color: #ccc;
+                      color: #fff;
+                      padding: 0.3em 0.6em 0.3em 0.6em;
+                      vertical-align: middle;
+                      font-size: 0.5em;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                      border-radius: 0.25em;
+                      -moz-border-radius: 0.25em;
+                      -webkit-border-radius: 0.25em;">
+            {{name}}
+          </a>
+          {{~#if @last}} {{else}}, {{/if}}
+        {{/foreach}}
+    {{/if}}
+
+    {{#if featured}}
+      <i class="fa fa-star feature-star" style="color:gold;padding-left:4px;"></i>
+    {{/if}}
+
+  </header>
 </article>
+
+
